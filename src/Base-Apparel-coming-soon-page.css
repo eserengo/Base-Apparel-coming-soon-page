@@ -1,0 +1,242 @@
+:root{
+  /* --- font --- */
+  font-size: 16px;
+  --light: 300;
+  --normal: 400;
+  --heavy: 600;
+  /* --- color palette --- */
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: hsl(0, 93%, 68%);
+  --soft-green: rgb(108, 192, 108);
+  --dark-grayish-red: hsl(0, 6%, 24%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+  --white: hsl(0, 0%, 100%);
+  --blue: hsl(240, 100%, 50%);
+  /* --- gradients --- */
+  --linear1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --linear2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+body {
+  font-family: "Josefin Sans";
+  background-color: var(--light-grayish-blue);
+  min-width: 35rem;
+}
+
+.card {
+  background-color: var(--white);
+  max-width: 50%;
+  max-height: 95vh;
+  display: grid;
+  grid-template: repeat(12, minmax(0, 1fr)) / repeat(10, minmax(0, 1fr));
+  border-radius: 1rem;
+}
+
+img {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: block;
+  width: 6rem;
+  margin: 1rem 2rem;
+}
+
+h1 {
+  color: var(--dark-grayish-red);
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: var(--heavy);
+  font-size: 2.5rem;
+  letter-spacing: 0.5rem;
+  grid-column: 2 / span 8;
+  grid-row: 7 / span 2;
+}
+
+span {
+  color: var(--desaturated-red);
+  grid-column: 2 / span 8;
+  grid-row: 9 / span 2;
+  text-align: center;
+  font-weight: var(--normal);
+  font-size: 0.85rem;
+  line-height: 1.5rem;
+  margin-top: 1rem;
+}
+
+h1 > span {
+  font-weight: var(--normal);
+  font-size: 2.5rem;
+}
+
+form {
+  grid-column: 2 / span 8;
+  grid-row: 11;
+  border: 1px solid var(--desaturated-red);
+  border-radius: 2rem;
+  width: 100%;
+  height: 3rem;
+  margin: 1rem auto 0;
+  position: relative;
+}
+
+form > label {
+  color: var(--desaturated-red);
+  font-weight: var(--light);
+  margin: 1rem;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+form > input {
+  color: var(--desaturated-red);
+  font-weight: var(--normal);
+  font-size: 1.25rem;
+  border: none;
+  height: 100%;
+  width: 62.5%;
+  display: inline-block;
+  position: absolute;
+  left: 7.5%;
+  top: 0%;
+  z-index: 0;
+}
+
+form > input:focus + label {
+  display: none;
+}
+
+form > button {
+  display: inline;
+  width: 4.4rem;
+  height: 2.9rem;
+  color: var(--white);
+  font-size: 1.5rem;
+  font-weight: var(--light);
+  text-align: center;
+  background-image: var(--linear2);
+  float: right;
+  border: none;
+  border-radius: 3rem;
+  margin-right: -0.2rem;
+  z-index: 1;
+}
+
+form > button:hover {
+  cursor: pointer;
+  transform: perspective(2rem) scale(1.25);
+}
+
+.hero {
+  grid-column: 1 / -1;
+  grid-row: 2 / span 4;
+  background-image: url("./images/hero-mobile.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+}
+
+.message {
+  grid-column: 2 / span 8;
+  grid-row: 12;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.valid {
+  color: var(--soft-green);
+}
+
+.invalid {
+  color: var(--soft-red);
+}
+
+i.fa.fa-check-circle,
+i.fa.fa-exclamation-circle {
+  font-size: 1.5rem;
+}
+
+.attribution {
+  font-size: 0.7rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.attribution > a {
+  color: var(--blue);
+}
+
+@media screen and (width>900px) {
+  .card {
+    max-width: 95vw;
+    max-height: 95vh;
+    display: grid;
+    grid-template: repeat(10, minmax(0, 1fr)) / repeat(10, minmax(0, 1fr));
+  }
+  img {
+    grid-column: 2 / span 2;
+    grid-row: 1;
+    display: block;
+    width: 10rem;
+    margin: 2rem 0;
+  }
+  .hero {
+    grid-column: 7 / -1;
+    grid-row: 1 / -1;
+    background-image: url("./images/hero-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: auto;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+  }
+  h1 {
+    grid-column: 2 / span 4;
+    grid-row: 3 / span 3;
+    font-size: 4.5rem;
+    text-align: left;
+    letter-spacing: 1rem;
+    margin: 0;
+  }
+  h1 > span {
+    font-size: 4.5rem;
+    text-align: left;
+    font-weight: var(--light);
+  }
+  span {
+    grid-column: 2 / span 4;
+    grid-row: 6 / span 2;
+    font-size: 1.25rem;
+    line-height: 2rem;
+    text-align: left;
+    margin-top: 3rem;
+  }
+  form {
+    grid-column: 2 / span 4;
+    grid-row: 9;
+    max-width: 30rem;
+    margin: 0;
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  .message {
+    grid-column: 2 / span 4;
+    grid-row: 10;
+    margin: 0.5rem auto 3rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+  }
+}
